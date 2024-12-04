@@ -14,9 +14,6 @@ app = FastAPI()
 # Mount the frontend directory
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
-port = int(os.environ.get("PORT", 8000))
-uvicorn.run(app, host="0.0.0.0", port=port)
-
 # Define the default folder containing PDFs
 PDF_FOLDER = "folder"  # Update this path to your PDF folder
 
