@@ -6,6 +6,15 @@ import os
 import fitz  # PyMuPDF
 from typing import List
 
+from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI
+
+app = FastAPI()
+
+# Mount the frontend directory
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+
+
 # Define the default folder containing PDFs
 PDF_FOLDER = "folder"  # Update this path to your PDF folder
 
